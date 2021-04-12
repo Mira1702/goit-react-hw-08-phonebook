@@ -1,8 +1,8 @@
 {
-    "name": "goit-react-hw-07-phonebook",
+    "name": "goit-react-hw-08-phonebook",
     "version": "0.1.0",
     "private": true,
-    "homepage": "https://Mira1702.github.io/goit-react-hw-07-phonebook",
+    "homepage": "https://Mira1702.github.io/goit-react-hw-08-phonebook",
     "dependencies": {
         "@reduxjs/toolkit": "^1.5.1",
         "@testing-library/jest-dom": "^5.11.10",
@@ -14,7 +14,7 @@
         "react-dom": "^17.0.2",
         "react-redux": "^7.2.3",
         "react-router-dom": "^5.2.0",
-        "react-scripts": "4.0.3",
+        "react-scripts": "^4.0.3",
         "shortid": "^2.2.16",
         "web-vitals": "^1.1.1"
     },
@@ -44,7 +44,5 @@
             "last 1 safari version"
         ]
     },
-    "devDependencies": {
-        "json-server": "^0.16.3"
-    }
+    "devDependencies": {}
 }
