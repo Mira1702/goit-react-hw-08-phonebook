@@ -2,21 +2,21 @@ import { connect } from 'react-redux'
 import * as authSelectors from '../../Redux/auth/auth-selectors'
 import * as authOperations from '../../Redux/auth/auth-operations'
 
-const UserMenu = ({ email, onLogout }) => (
+const UserMenu = ({ name, onLogout }) => (
     <div>
-        <p> Welcome, your email: {email}</p>
+        <span> Добро пожаловать, {name}</span>
         <button type="button" onClick={onLogout}>
-            Logout
+            Выйти
         </button>
     </div>
 )
 
 const mapStateToProps = (state) => ({
-    email: authSelectors.getUserEmail(state),
+    name: authSelectors.getUserName(state),
 })
 
-const mapDispatchToProps = {
-    onLogout: authOperations.logout,
-}
+// const mapDispatchToProps = {
+//     onLogout: authOperations.logout,
+// }
 
-export default connect(mapStateToProps, mapDispatchToProps)(UserMenu)
+export default connect(mapStateToProps)(UserMenu)

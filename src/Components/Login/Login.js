@@ -18,7 +18,7 @@ class LoginView extends Component {
 
         this.props.onLogin(this.state)
 
-        this.setState({ name: '', email: '', password: '' })
+        this.setState({ email: '', password: '' })
     }
 
     render() {
