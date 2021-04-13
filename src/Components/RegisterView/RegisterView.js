@@ -34,7 +34,7 @@ class RegisterView extends Component {
                     className={styles.registerForm}
                 >
                     <label className={styles.registerLabel}>
-                        <span>Логин</span>
+                        Логин
                         <input
                             type="email"
                             name="email"
@@ -43,7 +43,7 @@ class RegisterView extends Component {
                         />
                     </label>
                     <label className={styles.registerLabel}>
-                        <span>Пароль</span>
+                        Пароль
                         <input
                             type="password"
                             name="password"
@@ -52,7 +52,7 @@ class RegisterView extends Component {
                         />
                     </label>
                     <label className={styles.registerLabel}>
-                        <span>Имя</span>
+                        Имя
                         <input
                             type="name"
                             name="name"
@@ -61,7 +61,7 @@ class RegisterView extends Component {
                         />
                     </label>
                     <button type="submit" className={styles.registerButton}>
-                        Submit
+                        Отправить
                     </button>
                 </form>
             </div>
