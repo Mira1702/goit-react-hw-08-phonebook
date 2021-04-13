@@ -1,27 +1,27 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import * as authOperations from '../Redux/auth/auth-operations';
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import * as authOperations from '../../Redux/auth/auth-operations'
 
 class LoginView extends Component {
     state = {
         email: '',
         password: '',
-    };
+    }
 
     handleChange = ({ target: { name, value } }) => {
-        this.setState({ [name]: value });
-    };
+        this.setState({ [name]: value })
+    }
 
     handleSubmit = (event) => {
-        event.preventDefault();
+        event.preventDefault()
 
-        this.props.onLogin(this.state);
+        this.props.onLogin(this.state)
 
-        this.setState({ name: '', email: '', password: '' });
-    };
+        this.setState({ name: '', email: '', password: '' })
+    }
 
     render() {
-        const { email, password } = this.state;
+        const { email, password } = this.state
 
         return (
             <div>
@@ -48,12 +48,12 @@ class LoginView extends Component {
                     <button type="submit">Submit</button>
                 </form>
             </div>
-        );
+        )
     }
 }
 
 const mapDispatchToProps = {
     onLogin: authOperations.login,
-};
+}
 
-export default connect(null, mapDispatchToProps)(LoginView);
+export default connect(null, mapDispatchToProps)(LoginView)

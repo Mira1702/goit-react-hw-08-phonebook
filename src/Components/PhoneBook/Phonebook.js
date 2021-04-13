@@ -1,39 +1,39 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import shortid from 'shortid';
-import styles from './Phonebook.module.css';
-import * as operations from '../Redux/operations';
-import { getContacts } from '../Redux/selectors';
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import shortid from 'shortid'
+import styles from './Phonebook.module.css'
+import * as operations from '../../Redux/contacts/operations'
+import { getContacts } from '../../Redux/contacts/selectors'
 
 class PhoneBook extends Component {
     state = {
         contacts: [],
         name: '',
         number: '',
-    };
+    }
 
-    nameInputId = shortid.generate();
-    numberInputId = shortid.generate();
+    nameInputId = shortid.generate()
+    numberInputId = shortid.generate()
 
     handleChange = (event) => {
         this.setState({
             [event.currentTarget.name]: event.currentTarget.value,
-        });
-    };
+        })
+    }
 
     handleForm = (event) => {
-        event.preventDefault();
-        const { name } = this.state;
-        const { contacts } = this.props;
+        event.preventDefault()
+        const { name } = this.state
+        const { contacts } = this.props
         if (contacts.find((contact) => contact.name === name)) {
-            return alert(`${name} is already in contacts.`);
+            return alert(`${name} is already in contacts.`)
         }
-        this.props.onSubmit({ id: shortid.generate(), ...this.state });
+        this.props.onSubmit({ id: shortid.generate(), ...this.state })
         this.setState({
             name: '',
             number: '',
-        });
-    };
+        })
+    }
 
     render() {
         return (
@@ -62,19 +62,19 @@ class PhoneBook extends Component {
                     Add contact
                 </button>
             </form>
-        );
+        )
     }
 }
 
 const mapStateToProps = (state) => {
     return {
         contacts: getContacts(state),
-    };
-};
+    }
+}
 
 const mapDispatchToProps = (dispatch) => ({
     onSubmit: ({ name, number }) =>
         dispatch(operations.addContact(name, number)),
-});
+})
 
-export default connect(mapStateToProps, mapDispatchToProps)(PhoneBook);
+export default connect(mapStateToProps, mapDispatchToProps)(PhoneBook)
