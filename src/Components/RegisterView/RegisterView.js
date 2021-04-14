@@ -1,29 +1,29 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import * as authOperations from '../../Redux/auth/auth-operations'
-import styles from './RegisterView.module.css'
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import * as authOperations from '../../Redux/auth/auth-operations';
+import styles from './RegisterView.module.css';
 
 class RegisterView extends Component {
     state = {
         name: '',
         email: '',
         password: '',
-    }
+    };
 
     handleChange = ({ target: { name, value } }) => {
-        this.setState({ [name]: value })
-    }
+        this.setState({ [name]: value });
+    };
 
     handleSubmit = (event) => {
-        event.preventDefault()
+        event.preventDefault();
 
-        this.props.onRegister(this.state)
+        this.props.onRegister(this.state);
 
-        this.setState({ name: '', email: '', password: '' })
-    }
+        this.setState({ name: '', email: '', password: '' });
+    };
 
     render() {
-        const { name, email, password } = this.state
+        const { name, email, password } = this.state;
 
         return (
             <div className={styles.registerDiv}>
@@ -65,16 +65,16 @@ class RegisterView extends Component {
                     </button>
                 </form>
             </div>
-        )
+        );
     }
 }
 
 const mapDispatchToProps = (dispatch) => ({
     onRegister: (data) => dispatch(authOperations.register(data)),
-})
+});
 
 // const mapDispatchToProps = {
-//     onSubmit: authOperations.register,
+//     onRegister: authOperations.register,
 // };
 
-export default connect(null, mapDispatchToProps)(RegisterView)
+export default connect(null, mapDispatchToProps)(RegisterView);
