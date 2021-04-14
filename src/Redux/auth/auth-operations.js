@@ -5,7 +5,7 @@ axios.defaults.baseURL = 'https://goit-phonebook-api.herokuapp.com';
 
 const token = {
     set(token) {
-        axios.defaults.headers.common.Authorization = 'Bearer ${token}';
+        axios.defaults.headers.common.Authorization = `Bearer ${token}`;
     },
     unset() {
         axios.defaults.headers.common.Authorization = '';
@@ -47,6 +47,6 @@ export const logout = () => async (dispatch) => {
         dispatch(authActions.logoutError(error.message));
     }
 };
-export const getCurrentUser = () => (dispatch, getState) => {};
+export const getCurrentUser = () => (dispatch) => {};
 
 // export default { register, login, logout, getCurrentUser };

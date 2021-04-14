@@ -1,5 +1,7 @@
 .loginDiv {
     background-color: rgb(231, 229, 229);
+    display: grid;
+    justify-content: center;
 }
 .loginHeader {
     font-family: 'Roboto', sans-serif;

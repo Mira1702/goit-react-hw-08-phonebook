@@ -1,4 +1,3 @@
-import React from 'react';
 import { combineReducers } from 'redux';
 import { createReducer } from '@reduxjs/toolkit';
 import * as authActions from './auth-actions';

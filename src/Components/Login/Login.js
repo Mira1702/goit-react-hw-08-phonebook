@@ -1,28 +1,28 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import * as authOperations from '../../Redux/auth/auth-operations'
-import styles from './Login.module.css'
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import * as authOperations from '../../Redux/auth/auth-operations';
+import styles from './Login.module.css';
 
 class LoginView extends Component {
     state = {
         email: '',
         password: '',
-    }
+    };
 
     handleChange = ({ target: { name, value } }) => {
-        this.setState({ [name]: value })
-    }
+        this.setState({ [name]: value });
+    };
 
     handleSubmit = (event) => {
-        event.preventDefault()
+        event.preventDefault();
 
-        this.props.onLogin(this.state)
+        this.props.onLogin(this.state);
 
-        this.setState({ email: '', password: '' })
-    }
+        this.setState({ email: '', password: '' });
+    };
 
     render() {
-        const { email, password } = this.state
+        const { email, password } = this.state;
 
         return (
             <div className={styles.loginDiv}>
@@ -55,12 +55,12 @@ class LoginView extends Component {
                     </button>
                 </form>
             </div>
-        )
+        );
     }
 }
 
 const mapDispatchToProps = {
     onLogin: authOperations.login,
-}
+};
 
-export default connect(null, mapDispatchToProps)(LoginView)
+export default connect(null, mapDispatchToProps)(LoginView);
