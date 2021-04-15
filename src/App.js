@@ -1,15 +1,19 @@
-import React, { Component } from 'react';
-import { Switch, Route } from 'react-router-dom';
-import PhoneBook from './Components/PhoneBook/Phonebook';
-// import Contacts from './Components/Contacts';
-// import Filter from './Components/Filter';
-import HomeView from './Components/HomeView/HomeView';
-import RegisterView from './Components/RegisterView/RegisterView';
-import LoginView from './Components/Login/Login';
+import React, { Component, Suspense, lazy } from 'react';
+import { Switch } from 'react-router-dom';
+// import PhoneBook from './Components/PhoneBook/Phonebook';
+// import HomeView from './Components/HomeView/HomeView';
+// import RegisterView from './Components/RegisterView/RegisterView';
+// import LoginView from './Components/Login/Login';
 import AppBar from './Components/AppBar/AppBar';
+import PrivateRoute from './Components/PrivateRoute';
+import PublicRoute from './Components/PublicRoute';
 import { connect } from 'react-redux';
-import { fetchContact } from './Redux/contacts/operations';
 import * as authOperations from './Redux/auth/auth-operations';
+
+const HomeView = lazy(() => import('./Views/HomeView/HomeView'));
+const RegisterView = lazy(() => import('./Views/RegisterView/RegisterView'));
+const LoginView = lazy(() => import('./Views/Login/Login'));
+const PhonebookView = lazy(() => import('./Views/PhonebookView/PhonebookView'));
 
 class App extends Component {
     componentDidMount() {
@@ -20,13 +24,28 @@ class App extends Component {
         return (
             <>
                 <AppBar />
-
-                <Switch>
-                    <Route exact path="/" component={HomeView} />
-                    <Route path="/register" component={RegisterView} />
-                    <Route path="/login" component={LoginView} />
-                    <Route path="/contacts" component={PhoneBook} />
-                </Switch>
+                <Suspense fallback={<p>Страница загружается...</p>}>
+                    <Switch>
+                        <PublicRoute exact path="/" component={HomeView} />
+                        <PublicRoute
+                            path="/register"
+                            restricted
+                            redirectTo="/contacts"
+                            component={RegisterView}
+                        />
+                        <PublicRoute
+                            path="/login"
+                            restricted
+                            redirectTo="/contacts"
+                            component={LoginView}
+                        />
+                        <PrivateRoute
+                            path="/contacts"
+                            redirectTo="/login"
+                            component={PhonebookView}
+                        />
+                    </Switch>
+                </Suspense>
             </>
         );
     }
@@ -55,8 +74,8 @@ class App extends Component {
 //     fetchContact: () => dispatch(fetchContact()),
 // });
 
-const mapDispatchToProps = (dispatch) => ({
+const mapDispatchToProps = {
     onGetCurrentUser: authOperations.getCurrentUser,
-});
+};
 
 export default connect(null, mapDispatchToProps)(App);

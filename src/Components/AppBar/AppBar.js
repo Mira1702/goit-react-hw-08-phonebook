@@ -14,7 +14,7 @@ const AppBar = ({ isAuthenticated }) => (
 );
 
 const mapStateToProps = (state) => ({
-    isAuthenticated: authSelectors.getIsAuth(state),
+    isAuthenticated: authSelectors.getIsAuthenticated(state),
 });
 
 export default connect(mapStateToProps)(AppBar);

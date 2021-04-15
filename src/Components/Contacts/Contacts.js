@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import * as operations from '../Redux/operations';
-import { getFilteredContacts } from '../Redux/selectors';
+import * as operations from '../../Redux/contacts/operations';
+import { getFilteredContacts } from '../../Redux/contacts/selectors';
 
 const ContactItem = ({ id, name, number, onRemove }) => {
     return (
