@@ -1,6 +1,6 @@
-import React from 'react'
-import { NavLink } from 'react-router-dom'
-import styles from './AuthNav.module.css'
+import React from 'react';
+import { NavLink } from 'react-router-dom';
+import styles from './AuthNav.module.css';
 
 const AuthNav = () => (
     <div>
@@ -11,6 +11,6 @@ const AuthNav = () => (
             Логин
         </NavLink>
     </div>
-)
+);
 
-export default AuthNav
+export default AuthNav;
