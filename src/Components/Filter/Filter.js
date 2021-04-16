@@ -5,7 +5,7 @@ import * as actions from '../../Redux/contacts/actions';
 import { getFilter } from '../../Redux/contacts/selectors';
 import styles from './Filter.module.css';
 
-const nameInputId = shortid.generate();
+// const nameInputId = shortid.generate();
 
 const Filter = ({ value, onChange }) => {
     return (
@@ -17,7 +17,7 @@ const Filter = ({ value, onChange }) => {
                 name="filter"
                 value={value}
                 onChange={onChange}
-                id={nameInputId}
+                // id={nameInputId}
                 className={styles.filterLabel}
             />
         </div>
