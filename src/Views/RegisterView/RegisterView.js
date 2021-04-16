@@ -69,12 +69,12 @@ class RegisterView extends Component {
     }
 }
 
-const mapDispatchToProps = (dispatch) => ({
-    onRegister: (data) => dispatch(authOperations.register(data)),
-});
+// const mapDispatchToProps = (dispatch) => ({
+//     onRegister: (data) => dispatch(authOperations.register(data)),
+// });
 
-// const mapDispatchToProps = {
-//     onRegister: authOperations.register,
-// };
+const mapDispatchToProps = {
+    onRegister: authOperations.register,
+};
 
 export default connect(null, mapDispatchToProps)(RegisterView);

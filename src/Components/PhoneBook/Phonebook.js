@@ -28,7 +28,8 @@ class PhoneBook extends Component {
         if (contacts.find((contact) => contact.name === name)) {
             return alert(`${name} is already in contacts.`);
         }
-        this.props.onSubmit({ id: shortid.generate(), ...this.state });
+        // this.props.onSubmit({ id: shortid.generate(), ...this.state });
+        this.props.onSubmit({ ...this.state });
         this.setState({
             name: '',
             number: '',
@@ -40,7 +41,7 @@ class PhoneBook extends Component {
             <div className={styles.phoneDiv}>
                 <h1 className={styles.phoneHeader}>Контакты</h1>
                 <form onSubmit={this.handleForm} className="form">
-                    <label className={styles.label} htmlFor={this.nameInputId}>
+                    <label className={styles.label}>
                         Имя
                         <input
                             type="text"
@@ -50,10 +51,7 @@ class PhoneBook extends Component {
                             id={this.nameInputId}
                         ></input>
                     </label>
-                    <label
-                        className={styles.label}
-                        htmlFor={this.numberInputId}
-                    >
+                    <label className={styles.label}>
                         Номер
                         <input
                             type="tel"
@@ -78,9 +76,12 @@ const mapStateToProps = (state) => {
     };
 };
 
+// const mapDispatchToProps = (dispatch) => ({
+//     onSubmit: ({ name, number }) =>
+//         dispatch(operations.addContact(name, number)),
+// });
 const mapDispatchToProps = (dispatch) => ({
-    onSubmit: ({ name, number }) =>
-        dispatch(operations.addContact(name, number)),
+    onSubmit: (contact) => dispatch(operations.addContact(contact)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(PhoneBook);

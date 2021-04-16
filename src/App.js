@@ -1,9 +1,5 @@
 import React, { Component, Suspense, lazy } from 'react';
 import { Switch } from 'react-router-dom';
-// import PhoneBook from './Components/PhoneBook/Phonebook';
-// import HomeView from './Components/HomeView/HomeView';
-// import RegisterView from './Components/RegisterView/RegisterView';
-// import LoginView from './Components/Login/Login';
 import AppBar from './Components/AppBar/AppBar';
 import PrivateRoute from './Components/PrivateRoute';
 import PublicRoute from './Components/PublicRoute';
